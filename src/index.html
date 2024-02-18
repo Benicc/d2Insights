@@ -9,15 +9,23 @@
 </head>
 <body>
     <canvas id="chart"></canvas>
-    <div id="dataContainer">
-
-    </div>
+    <div id="dataContainer"></div>
+    <div id="db"></div>
     <script>
         //test fetching
         fetch('/users')
           .then(response => response.json())
           .then(data => {
             const dataContainer = document.getElementById('dataContainer');
+            dataContainer.textContent = JSON.stringify(data);
+            console.log(data);
+          });
+        
+        //get data from spreadsheet
+        fetch('/db')
+          .then(response => response.json())
+          .then(data => {
+            const dataContainer = document.getElementById('db');
             dataContainer.textContent = JSON.stringify(data);
             console.log(data);
           });

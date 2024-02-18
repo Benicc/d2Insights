@@ -54,7 +54,15 @@ app.get("/db", async (req, res) => {
         spreadsheetId
     });
 
-    res.send(metaData.data);
+    //read rows from spreadsheet
+
+    const getRows = await googleSheets.spreadsheets.values.get({
+        auth,
+        spreadsheetId,
+        range: "Sheet1"
+    })
+
+    res.send(getRows.data.values);
 });
 
 
