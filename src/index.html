@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/functions"></script>
+</head>
+<body>
+    <canvas id="chart"></canvas>
+    <div id="dataContainer">
+
+    </div>
+    <script>
+        //test fetching
+        fetch('/users')
+          .then(response => response.json())
+          .then(data => {
+            const dataContainer = document.getElementById('dataContainer');
+            dataContainer.textContent = JSON.stringify(data);
+            console.log(data);
+          });
+
+        
+        fetch('/dataSet')
+          .then(response => response.json())
+          .then(data => {
+            const ctx = document.getElementById("chart");
+            console.log(data.values);
+            createChart(ctx, data.values);
+          });
+
+    </script>
+</body>
+</html>
