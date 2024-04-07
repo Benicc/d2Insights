@@ -8,9 +8,10 @@
     <script src="/functions"></script>
 </head>
 <body>
+    <h1>D2MG Class Attendance by Week</h1>
     <canvas id="chart"></canvas>
-    <div id="dataContainer"></div>
-    <div id="db"></div>
+    <!-- <div id="dataContainer"></div>
+    <div id="db"></div> -->
     <script>
         //test fetching
         fetch('/users')
@@ -31,12 +32,12 @@
           });
 
         
-        fetch('/dataSet')
+        fetch('/db')
           .then(response => response.json())
           .then(data => {
             const ctx = document.getElementById("chart");
             console.log(data.values);
-            createChart(ctx, data.values);
+            createChart(ctx, data.labels, data.inputData);
           });
 
     </script>
