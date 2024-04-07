@@ -10,28 +10,7 @@
 <body>
     <h1>D2MG Class Attendance by Week</h1>
     <canvas id="chart"></canvas>
-    <!-- <div id="dataContainer"></div>
-    <div id="db"></div> -->
     <script>
-        //test fetching
-        fetch('/users')
-          .then(response => response.json())
-          .then(data => {
-            const dataContainer = document.getElementById('dataContainer');
-            dataContainer.textContent = JSON.stringify(data);
-            console.log(data);
-          });
-        
-        //get data from spreadsheet
-        fetch('/db')
-          .then(response => response.json())
-          .then(data => {
-            const dataContainer = document.getElementById('db');
-            dataContainer.textContent = JSON.stringify(data);
-            console.log(data);
-          });
-
-        
         fetch('/db')
           .then(response => response.json())
           .then(data => {
@@ -39,7 +18,6 @@
             console.log(data.values);
             createChart(ctx, data.labels, data.inputData);
           });
-
     </script>
 </body>
 </html>
