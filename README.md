@@ -75,7 +75,7 @@ With the given data in the following google sheet: https://docs.google.com/sprea
 
 It should look something like this:
 
-
+![Attendance Tracker](websiteGraph.JPG)
 
 
 ## Notes
