@@ -70,6 +70,14 @@ Step 2 Open your browser and navigate to:
 
 http://localhost:8080
 
+### What it should look like
+With the given data in the following google sheet: https://docs.google.com/spreadsheets/d/1rbyNBeNzD9D4RJ0r0Ojpo0QlRLaudQ8t3c6CjuNKaMo/edit#gid=0
+
+It should look something like this:
+
+
+
+
 ## Notes
 You can change the port number/ip.
 Additionally you have a google form that writes into the google sheet every time a student logs their attendance. 
