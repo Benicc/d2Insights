@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
 
 const { google } = require("googleapis");
+
 
 
 const app = express();
@@ -37,8 +39,9 @@ app.get('/functions', (req, res) => {
 app.get("/db", async (req, res) => {
 
     //define authentication object
+
     const auth = new google.auth.GoogleAuth({
-        keyFile: "../credentials.json",
+        credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
         scopes: "https://www.googleapis.com/auth/spreadsheets"
     });
 
@@ -49,7 +52,7 @@ app.get("/db", async (req, res) => {
     const googleSheets = google.sheets({version: "v4", auth: client})
 
     // get metadata about spreadsheet
-    const spreadsheetId = "1rbyNBeNzD9D4RJ0r0Ojpo0QlRLaudQ8t3c6CjuNKaMo";
+    const spreadsheetId = "1BA0Nv8qMi2DPNji250BQKT6SJdSi6ZC8y-KfQgY5fi4";
 
     //read rows from spreadsheet
     const getRows = await googleSheets.spreadsheets.values.get({
